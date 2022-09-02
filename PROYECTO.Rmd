@@ -1,0 +1,69 @@
+PROYECTO
+JORGE ESTUARDO ALONZO
+
+
+*1*
+1.1
+```{r}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+```
+1.2
+```{r}
+yearly=read.csv("deaths_handwashing.csv")
+```
+1.3
+
+```{r}
+yearly
+```
+*2*
+2.1
+```{r}
+yearly%>%
+  mutate(proportion_deaths=births/deaths)
+```
+*3*
+```{r}
+  ggplot(yearly, aes(x=year,y=deaths,colour=clinic))+
+  geom_line()
+```
+
+*4*
+4.1
+```{r}
+monthly=read.csv("deaths_clinic_1.csv")
+
+monthly
+```
+4.2
+
+```{r}
+
+monthly%>%
+  mutate(proportion_deaths=deaths/births)
+  
+
+```
+
+4.3
+```{r}
+head(monthly)
+```
+4.3.1
+```{r}
+monthly1=monthly%>%
+  mutate(proportion_deaths=deaths/births)
+```
+
+```{r}
+monthly1
+```
+4.3.2
+```{r}
+head(monthly1)
+```
+
+
+

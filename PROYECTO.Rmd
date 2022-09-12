@@ -8,6 +8,7 @@ JORGE ESTUARDO ALONZO
 library(tidyverse)
 library(dplyr)
 library(ggplot2)
+library(lillies)
 ```
 1.2
 ```{r}
@@ -124,8 +125,20 @@ monthly
 
 
 
+7.
+7.1
+```{r}
+month_summary=monthly%>%
+  group_by(handwashing_started)%>%
+  summarise(mean(proportion_deaths))
+month_summary
+```
 
+8.
 
+```{r}
+t.test(month_summary$`mean(proportion_deaths)`)
+```
 
 
 

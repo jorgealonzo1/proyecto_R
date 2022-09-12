@@ -66,12 +66,79 @@ head(monthly1)
 ```
 
 *5*
-
+5.1
 ```{r}
 
-
+ ggplot(monthly1, aes(x=births,y=deaths))+
+  geom_line()
 
 
 ```
+5.2
+
+```{r}
+
+ ggplot(monthly1, aes(x=births,y=deaths))+
+  geom_line()+labs(title="GRAFICA",x = "Births",y="Deaths")
+```
+5.3
+
+
+```{r}
+death_by_year=monthly1%>%
+  group_by(date)%>%
+  summarize(deathss=median(deaths))
+
+death_by_year
+```
+5.4
+
+```{r}
+ggplot(death_by_year,aes(x=date,y=deathss))+geom_col()
+
+
+```
+6.
+6.1
+```{r}
+monthly=monthly1%>%
+  mutate(handwashing_started=date >= "1847-01-01")
+  
+monthly
+  
+  
+```
+6.2
+
+```{r}
+ ggplot(monthly, aes(x=date,y=proportion_deaths,colour=handwashing_started))+
+  geom_line()
+```
+
+6.3
+
+```{r}
+ ggplot(monthly, aes(x=date,y=proportion_deaths,colour=handwashing_started))+
+  geom_line()+labs(title="GRAFICA",x="FECHA",y="PROPORCION",colour="HANDWASHING")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
